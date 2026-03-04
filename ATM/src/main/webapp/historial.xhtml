@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<ui:composition template="layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<ui:define name="contenido">
+
+		<h2>Menú Principal</h2>
+
+		<h:form>
+
+			<h:messages style="color:red" />
+
+			<h:panelGrid columns="2">
+
+				<h:outputLabel value="Usuario:" />
+				<h:inputText value="#{atmBean.user}" required="true" />
+
+				<h:outputLabel value="Contraseña:" />
+				<h:inputSecret value="#{atmBean.pass}" required="true" />
+
+			</h:panelGrid>
+
+			<br />
+
+			<h:commandButton value="Ver historial"
+				action="#{atmBean.validarAdmin}" />
+
+			<h:panelGroup rendered="#{atmBean.adminAutenticado}">
+				<h3>Historial completo</h3>
+				<h:outputText value="#{atmBean.lista}" escape="false" />
+			</h:panelGroup>
+
+			<h:commandButton value="Volver al Menú"
+				action="#{atmBean.logoutAdmin}" immediate="true" />
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
