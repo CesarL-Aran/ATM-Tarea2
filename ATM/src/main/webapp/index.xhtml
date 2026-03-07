@@ -18,18 +18,24 @@
 			<h:form>
 
 				<!-- Mensajes JSF -->
-				<h:messages globalOnly="true" showDetail="true"
-					style="color:red; text-align:center;" />
+				<!-- <h:messages  showSummary="true" showDetail="false"
+					style="color:red; text-align:center;" /> -->
 
 				<h:panelGrid columns="2" cellpadding="5" style="margin-top:10px;">
 
 					<h:outputLabel for="cuenta" value="Número de Cuenta:" />
 					<h:inputText id="cuenta" value="#{atmBean.numeroCuenta}"
 						required="true" requiredMessage="Ingrese usuario" />
+					<br />
+					<h:message for="cuenta" showSummary="true" showDetail="false"
+						style="color:red" />
 
 					<h:outputLabel for="pin" value="PIN:" />
 					<h:inputSecret id="pin" value="#{atmBean.pin}" required="true"
 						requiredMessage="Ingrese PIN" />
+					<br />
+					<h:message for="pin" showSummary="true" showDetail="false"
+						style="color:red" />
 
 				</h:panelGrid>
 
@@ -37,7 +43,7 @@
 
 				<h:commandButton value="Iniciar Sesión" action="#{atmBean.login}"
 					style="width:100%; padding:10px; font-weight:bold;" />
-
+				<h:messages globalOnly="true" style="color:red; text-align:center;"/>
 
 			</h:form>
 

@@ -29,7 +29,10 @@
 
 			<h:panelGroup rendered="#{atmBean.adminAutenticado}">
 				<h3>Historial completo</h3>
+				<h:outputLabel value="Tipo___Cuenta_Monto__________Fecha___________Saldo"/>
+				<br/>
 				<h:outputText value="#{atmBean.lista}" escape="false" />
+				<br/>
 			</h:panelGroup>
 
 			<h:commandButton value="Volver al Menú"

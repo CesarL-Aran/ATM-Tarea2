@@ -11,22 +11,36 @@
 
 		<h:form>
 
-			<!-- Mensajes JSF -->
-			<h:messages globalOnly="true" showDetail="true" style="color:green;" />
-
 			<br />
 
 			<h:panelGrid columns="2" cellpadding="5">
 
 				<h:outputLabel for="pin" value="Ingrese su PIN:" />
+
 				<h:inputSecret id="pin" value="#{atmBean.pinConfirmacion}"
-					required="true" requiredMessage="Debe ingresar el PIN" />
+					required="true" requiredMessage="Debe ingresar el PIN"
+					validatorMessage="Solamente 4 Digitos">
+
+					<f:validateRegex pattern="[0-9]{4}"/>
+
+				</h:inputSecret>
+				<br />
+				<h:message for="pin" showSummary="true" showDetail="false"
+					style="color:red" />
+
 
 				<h:outputLabel for="monto" value="Monto a depositar:" />
+
 				<h:inputText id="monto" value="#{atmBean.monto}" required="true"
-					requiredMessage="Ingrese el monto">
+					requiredMessage="Ingrese el monto"
+					validatorMessage="El monto debe ser mayor que 0">
+
 					<f:validateDoubleRange minimum="0.01" />
+
 				</h:inputText>
+				<br />
+				<h:message for="monto" showSummary="true" showDetail="false"
+					style="color:red" />
 
 			</h:panelGrid>
 
@@ -34,8 +48,8 @@
 			<br />
 
 			<h:commandButton value="Depositar" action="#{atmBean.depositar}" />
+			<h:messages globalOnly="true" style="color:green" />
 
-			<br />
 			<br />
 
 			<h:commandButton value="Volver al menú"

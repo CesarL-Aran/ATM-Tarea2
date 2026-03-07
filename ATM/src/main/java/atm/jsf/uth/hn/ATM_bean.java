@@ -60,6 +60,8 @@ public class ATM_bean implements Serializable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		FacesContext.getCurrentInstance().addMessage(null,
+				new FacesMessage(FacesMessage.SEVERITY_ERROR, "Acceso Denegado", null));
 		return "login.xhtml?faces-redirect=true"; // login fallido
 	}
 
@@ -82,18 +84,24 @@ public class ATM_bean implements Serializable {
 		if (!pinConfirmacion.equals(pin)) {
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "PIN incorrecto", null));
+			monto = 0;
+			pinConfirmacion = "";
 			return;
 		}
 
 		if (monto <= 0) {
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Monto inválido", null));
+			monto = 0;
+			pinConfirmacion = "";
 			return;
 		}
 
 		if (monto > saldo) {
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Saldo insuficiente", null));
+			monto = 0;
+			pinConfirmacion = "";
 			return;
 		}
 
@@ -113,12 +121,16 @@ public class ATM_bean implements Serializable {
 		if (!pinConfirmacion.equals(pin)) {
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "PIN incorrecto", null));
+			monto = 0;
+			pinConfirmacion = "";
 			return;
 		}
 
 		if (monto <= 0) {
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "El monto debe ser mayor que cero", null));
+			monto = 0;
+			pinConfirmacion = "";
 			return;
 		}
 
@@ -192,7 +204,7 @@ public class ATM_bean implements Serializable {
 	}
 
 	private void guardarHistorial(String tipoOperacion) {
-		String linea = tipoOperacion + "-" + monto + "-" + new Date() + "-" + saldo;
+		String linea = tipoOperacion + "-" + numeroCuenta + "-" + monto + "-" + new Date() + "-" + saldo;
 
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(historialArchivo, true))) { // append
 			bw.write(linea);
