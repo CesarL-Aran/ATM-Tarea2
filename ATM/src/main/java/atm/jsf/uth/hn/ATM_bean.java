@@ -49,7 +49,7 @@ public class ATM_bean implements Serializable {
 					// System.out.println(numarchivo+" - "+pinArchivo);
 
 					if (numarchivo.equals(numeroCuenta) && pinArchivo.equals(pin)) {
-						// usuario encontrado, cargar datos
+				
 						numeroCuenta = numarchivo;
 						pin = pinArchivo;
 						saldo = montoArchivo;
@@ -62,7 +62,7 @@ public class ATM_bean implements Serializable {
 		}
 		FacesContext.getCurrentInstance().addMessage(null,
 				new FacesMessage(FacesMessage.SEVERITY_ERROR, "Acceso Denegado", null));
-		return "login.xhtml?faces-redirect=true"; // login fallido
+		return "login.xhtml?faces-redirect=true"; 
 	}
 
 	public void logout() {
@@ -110,7 +110,7 @@ public class ATM_bean implements Serializable {
 		sobrescribirArchivo();
 		guardarHistorial("RETIRO");
 		FacesContext.getCurrentInstance().addMessage(null,
-				new FacesMessage(FacesMessage.SEVERITY_INFO, "Retiro exitoso. Nuevo saldo: " + saldo, null));
+				new FacesMessage(FacesMessage.SEVERITY_INFO, "Retiro exitoso. Nuevo saldo:L. " + saldo, null));
 
 		monto = 0;
 		pinConfirmacion = "";
@@ -139,7 +139,7 @@ public class ATM_bean implements Serializable {
 		sobrescribirArchivo();
 		guardarHistorial("DEPOSITO");
 		FacesContext.getCurrentInstance().addMessage(null,
-				new FacesMessage(FacesMessage.SEVERITY_INFO, "Retiro exitoso. Nuevo saldo: " + saldo, null));
+				new FacesMessage(FacesMessage.SEVERITY_INFO, "Retiro exitoso. Nuevo saldo:L. " + saldo, null));
 
 		monto = 0;
 		pinConfirmacion = "";
@@ -161,10 +161,10 @@ public class ATM_bean implements Serializable {
 					String numarchivo = partes[0];
 
 					if (numarchivo.equals(numeroCuenta)) {
-						// reemplazar la línea con el saldo actualizado
+						
 						sb.append(numeroCuenta).append(",").append(pin).append(",").append(saldo).append("\n");
 					} else {
-						sb.append(linea).append("\n"); // mantener otras líneas
+						sb.append(linea).append("\n"); 
 					}
 				}
 			}
@@ -172,7 +172,7 @@ public class ATM_bean implements Serializable {
 			e.printStackTrace();
 		}
 
-		// escribir todo de nuevo
+
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
 			bw.write(sb.toString());
 		} catch (IOException e) {
@@ -193,7 +193,7 @@ public class ATM_bean implements Serializable {
 		try (BufferedReader br = new BufferedReader(new FileReader(historialArchivo))) {
 			String linea;
 			while ((linea = br.readLine()) != null) {
-				contenido.append(linea).append("<br/>"); // saltos de línea para JSF
+				contenido.append(linea).append("<br/>"); 
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
