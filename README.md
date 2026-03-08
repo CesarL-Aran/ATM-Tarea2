@@ -5,12 +5,14 @@
 -  Eddy Josué campos Ortiz - 202320010622
    
 <p>
+   
 Este proyecto consiste en una simulación básica de un cajero automático (ATM) desarrollada como aplicación web utilizando Java Server Faces (JSF). El sistema permite a los usuarios autenticarse mediante su número de cuenta y PIN, y realizar operaciones bancarias básicas como consultar saldo, depositar y retirar dinero.
 </p>
 
 ![Login](https://github.com/CesarL-Aran/ATM-Tarea2/blob/main/ATM/image/login.png?raw=true)
 
 <p>
+   
 El objetivo principal del proyecto es demostrar el uso de tecnologías Java para aplicaciones web, manejo de formularios, validación de datos y persistencia simple utilizando archivos de texto.
 </p>
 
@@ -37,6 +39,7 @@ El objetivo principal del proyecto es demostrar el uso de tecnologías Java para
 
 ## Estructura del proyecto
 <p>
+   
 El sistema utiliza un **Managed Bean (atmBean)** para manejar la lógica del cajero automático.  
 Los datos de los clientes se almacenan en un archivo de texto que contiene:
 </p>
@@ -56,6 +59,7 @@ Los datos de los clientes se almacenan en un archivo de texto que contiene:
 
 ## Historial de transacciones
 <p>
+   
 El sistema incluye un registro de las operaciones realizadas por los usuarios.  
 Cada vez que se realiza una operación como un **depósito o retiro**, la transacción se guarda en un archivo de texto (`historial.txt`).
 
@@ -73,6 +77,7 @@ Cada línea del archivo representa una transacción e incluye información como:
 ![Historial](https://github.com/CesarL-Aran/ATM-Tarea2/blob/main/ATM/image/historal.png?raw=true)
 
 <p>
+   
 Para poder acceder al historial de transacciones ese solo se puede llevar acabo por el administrador de ATM, esto evita que los usuarios no exponga información de otros usuarios.  Se debe entrar mediante el botón **ver historial**, luego ingresar usuario y contraseña, luego oprime el botón ver historial.
 </p>
 
@@ -82,5 +87,6 @@ Para poder acceder al historial de transacciones ese solo se puede llevar acabo 
 - Contraseña: 1234
 
 <p>
+   
 Gracia a los archivos podemos simular un sistema básico de historial de operaciones sin necesidad de utilizar una base de datos, utilizando únicamente almacenamiento en archivos de texto.
 </p>
