@@ -1,6 +1,6 @@
 # Sistema Cajero Automatico ATM Web (JSF)
 
-#####Grupo #9
+#####Grupo 9
 - Cesar Leonardo Arana Santos - 201630020056
 -  Eddy Josué campos Ortiz - 202320010622
    
