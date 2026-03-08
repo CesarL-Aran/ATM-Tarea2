@@ -1,5 +1,9 @@
 # Sistema Cajero Automatico ATM Web (JSF)
 
+#####Grupo #9
+- Cesar Leonardo Arana Santos - 201630020056
+-  Eddy Josué campos Ortiz - 202320010622
+   
 <p>
 Este proyecto consiste en una simulación básica de un cajero automático (ATM) desarrollada como aplicación web utilizando Java Server Faces (JSF). El sistema permite a los usuarios autenticarse mediante su número de cuenta y PIN, y realizar operaciones bancarias básicas como consultar saldo, depositar y retirar dinero.
 </p>
