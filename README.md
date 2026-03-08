@@ -72,6 +72,14 @@ Para poder acceder al historial de transacciones ese solo se puede llevar acabo 
 - Usuario: admin
 - Contraseña: 1234
 
+##### Clientes de Prueba
+
+- 1001,1234,5000
+- 1002,4321,2500
+- 1003,1111,10000
+- 1004,2222,750
+- 1005,9999,15000
+
 <p>
 Gracia a los archivos podemos simular un sistema básico de historial de operaciones sin necesidad de utilizar una base de datos, utilizando únicamente almacenamiento en archivos de texto.
 </p>
